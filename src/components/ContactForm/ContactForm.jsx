@@ -5,9 +5,9 @@ import { Form, Button, ErrorMessage, Label, Input } from './ContactForm.styled';
 import * as yup from 'yup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { nanoid } from 'nanoid';
-import { addContact } from 'redux/contactSlice';
+import { addContact } from 'redux/operations';
 
 yup.addMethod(yup.string, 'validation', function () {
   return this.matches(
@@ -31,7 +31,7 @@ export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const onChange = e => {
