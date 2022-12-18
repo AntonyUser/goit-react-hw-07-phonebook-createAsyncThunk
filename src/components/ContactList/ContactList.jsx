@@ -5,7 +5,7 @@ import { selectFilter, selectContacts } from 'redux/selectors';
 import { Item, List, Button } from './ContactList.styled';
 
 export const ContactList = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(selectFilter);
 
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
