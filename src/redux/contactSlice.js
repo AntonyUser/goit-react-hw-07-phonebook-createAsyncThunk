@@ -30,7 +30,7 @@ export const contactsSlice = createSlice({
     [addContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items.unshift(action.payload);
+      state.items.push(action.payload);
     },
 
     [deleteContact.fulfilled](state, action) {
